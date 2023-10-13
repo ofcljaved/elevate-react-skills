@@ -6,8 +6,8 @@ interface currencyDataType {
 interface InputBoxProps {
   label: string;
   className?: string;
-  amount: number;
-  onAmountChange: (amount: number) => void;
+  amount: number | "";
+  onAmountChange: (amount: number | "") => void;
   onCurrencyChange: (currency: string) => void;
   currencyOptions: string[];
   selectCurrency: string;

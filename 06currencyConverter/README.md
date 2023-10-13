@@ -1,27 +1,13 @@
-# React + TypeScript + Vite
+# React + TypeScript | Currency Converter
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This currency converter application is built using React and TypeScript. It provides real-time currency conversion data by fetching it from the following API endpoint:
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+```ts
+https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/${currency}.json
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Features
+
+- Custom Hooks and `useId` Hook: The project leverages custom hooks and the `useId` hook to generate unique IDs for input elements and their corresponding labels, enhancing the application's functionality and maintainability.
+
+- Modular Component Structure: The components are organized within the `component` folder, and an `index.ts` file is used to export them, making it easier to manage and maintain the codebase.
