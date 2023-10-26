@@ -11,3 +11,15 @@ interface LoginUserAccount {
 interface CreateUserAccount extends LoginUserAccount {
   name: string;
 }
+
+interface UpdatePost {
+  title: string;
+  content: string;
+  featuredImg: string;
+  status: string;
+}
+
+interface CreatePost extends UpdatePost {
+  slug: string;
+  userId: string;
+}

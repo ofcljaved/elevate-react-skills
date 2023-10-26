@@ -1,13 +1,16 @@
 import config from "../config/config";
-import { Client, Account, ID } from "appwrite";
+import { Client, Account, ID, Models } from "appwrite";
 
 class AuthService {
-  client = new Client();
-  account: any;
+  private client: Client;
+  private account: Account;
+
   constructor() {
+    this.client = new Client();
     this.client
       .setEndpoint(config.appwriteUrl)
       .setProject(config.appwriteProjectId);
+
     this.account = new Account(this.client);
   }
 
@@ -15,7 +18,7 @@ class AuthService {
     email,
     password,
     name,
-  }: CreateUserAccount): Promise<any> {
+  }: CreateUserAccount): Promise<Models.Session> {
     try {
       const userAccount = await this.account.create(
         ID.unique(),
@@ -33,7 +36,7 @@ class AuthService {
     }
   }
 
-  async login({ email, password }: LoginUserAccount) {
+  async login({ email, password }: LoginUserAccount): Promise<Models.Session> {
     try {
       return await this.account.createEmailSession(email, password);
     } catch (error: any) {
@@ -41,7 +44,7 @@ class AuthService {
     }
   }
 
-  async isLoggedIn() {
+  async isLoggedIn(): Promise<Models.User<Models.Preferences>> {
     try {
       return await this.account.get();
     } catch (error) {
@@ -49,7 +52,7 @@ class AuthService {
     }
   }
 
-  async logout() {
+  async logout(): Promise<{}> {
     try {
       return await this.account.deleteSessions();
     } catch (error) {
