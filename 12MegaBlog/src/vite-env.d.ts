@@ -23,3 +23,8 @@ interface CreatePost extends UpdatePost {
   slug: string;
   userId: string;
 }
+
+type AuthState = {
+  status: boolean;
+  userData: Models.Session | null;
+};
