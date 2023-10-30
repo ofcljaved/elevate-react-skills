@@ -28,3 +28,9 @@ type AuthState = {
   status: boolean;
   userData: Models.Session | null;
 };
+
+type NavItem = {
+  name: string;
+  url: string;
+  active: boolean;
+};
