@@ -1,7 +1,7 @@
 import config from "../config/config";
 import { Client, Storage, Models, ID } from "appwrite";
 
-class Service {
+class StorageService {
   private client: Client;
   private storage: Storage;
 
@@ -39,6 +39,6 @@ class Service {
   }
 }
 
-const service = new Service();
+const storageService = new StorageService();
 
-export default service;
+export default storageService;

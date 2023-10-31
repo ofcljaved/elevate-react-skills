@@ -34,3 +34,32 @@ type NavItem = {
   url: string;
   active: boolean;
 };
+
+interface ButtonProps {
+  children: PropsWithChildren;
+  type?: string;
+  bgColor?: string;
+  textColor?: string;
+  className?: string;
+  [x: string]: any;
+}
+
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+  label?: string;
+  type?: string;
+  className?: string;
+  [x: string]: any;
+}
+
+interface SelectProps extends InputHTMLAttributes<HTMLSelectElement> {
+  label?: string;
+  options?: string[];
+  className?: string;
+  [x: string]: any;
+}
+
+interface CardProps {
+  $id: string;
+  title: string;
+  featuredImage: string;
+}

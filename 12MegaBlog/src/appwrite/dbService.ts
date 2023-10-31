@@ -1,7 +1,7 @@
 import config from "../config/config";
 import { Client, Databases, Models, Query } from "appwrite";
 
-class Service {
+class DbService {
   private client: Client;
   private databases: Databases;
 
@@ -89,6 +89,6 @@ class Service {
   }
 }
 
-const service = new Service();
+const dbService = new DbService();
 
-export default service;
+export default dbService;
