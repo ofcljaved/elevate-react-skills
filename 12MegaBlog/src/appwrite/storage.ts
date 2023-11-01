@@ -34,8 +34,10 @@ class StorageService {
     }
   }
 
-  getFilePreview(fileId: string): URL {
-    return this.storage.getFilePreview(config.appwriteBucketId, fileId);
+  getFilePreview(fileId: string): string {
+    return this.storage
+      .getFilePreview(config.appwriteBucketId, fileId)
+      .toString();
   }
 }
 

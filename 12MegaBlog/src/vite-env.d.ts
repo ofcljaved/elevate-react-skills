@@ -44,14 +44,14 @@ interface ButtonProps {
   [x: string]: any;
 }
 
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+interface InputProps extends HTMLProps<HTMLInputElement> {
   label?: string;
   type?: string;
   className?: string;
   [x: string]: any;
 }
 
-interface SelectProps extends InputHTMLAttributes<HTMLSelectElement> {
+interface SelectProps extends HTMLProps<HTMLSelectElement> {
   label?: string;
   options?: string[];
   className?: string;
@@ -62,4 +62,9 @@ interface CardProps {
   $id: string;
   title: string;
   featuredImage: string;
+}
+
+interface ProtectedLayoutProps {
+  children: PropsWithChildren;
+  authentication?: boolean;
 }
