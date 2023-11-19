@@ -1,11 +1,11 @@
-import { Link, useNavigate } from "react-router-dom";
-import { Button, Input, Logo } from "..";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { AppDispatch } from "../../store/store";
-import { SubmitHandler, useForm } from "react-hook-form";
-import authService from "../../appwrite/auth";
-import { login as authLogin } from "../../store/authSlice";
+import { Link, useNavigate } from 'react-router-dom';
+import { Button, Input, Logo } from '..';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '../../store/store';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import authService from '../../appwrite/auth';
+import { login as authLogin } from '../../store/authSlice';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -22,7 +22,7 @@ const Login = () => {
       if (session) {
         const userData = await authService.isLoggedIn();
         if (userData) dispatch(authLogin(userData));
-        navigate("/");
+        navigate('/');
       }
     } catch (error: any) {
       setError(error.message);
@@ -41,10 +41,11 @@ const Login = () => {
           Sign in to your account
         </h2>
         <p className="mt-2 text-center text-base text-black/60">
-          Don'&apos;'t have any account?&nbsp;
+          Don&apos;t have any account?&nbsp;
           <Link
             to="/signup"
-            className="font-medium text-primary transition-all duration-200 hover:underline">
+            className="font-medium text-primary transition-all duration-200 hover:underline"
+          >
             Sign Up
           </Link>
         </p>
@@ -55,12 +56,12 @@ const Login = () => {
               label="Email :"
               type="email"
               placeholder="Enter your email"
-              {...register("email", {
+              {...register('email', {
                 required: true,
                 validate: {
                   matchPattern: (value) =>
                     /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
-                    "Email address must be a valid address",
+                    'Email address must be a valid address',
                 },
               })}
             />
@@ -68,7 +69,7 @@ const Login = () => {
               label="Password :"
               type="password"
               placeholder="Enter your password"
-              {...register("password", { required: true })}
+              {...register('password', { required: true })}
             />
             <Button type="submit" className="w-full">
               Sign in
