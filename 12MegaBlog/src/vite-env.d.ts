@@ -68,3 +68,10 @@ interface ProtectedLayoutProps {
   children: PropsWithChildren;
   authentication?: boolean;
 }
+
+interface RTEProps {
+  name?: string;
+  control: Control<FieldValues>;
+  label?: string;
+  defaultValue?: string;
+}

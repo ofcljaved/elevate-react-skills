@@ -1,4 +1,5 @@
-import Input from "./Input";
-import Select from "./Select";
+import Input from './Input';
+import RTE from './RTE';
+import Select from './Select';
 
-export { Input, Select };
+export { Input, Select, RTE };
