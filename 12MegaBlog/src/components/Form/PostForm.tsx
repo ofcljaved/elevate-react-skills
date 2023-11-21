@@ -5,8 +5,13 @@ import dbService from '../../appwrite/dbService';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
+import { Models } from 'appwrite';
 
-const PostForm = ({ post }) => {
+interface PostFormProps {
+  post: CreatePost;
+}
+
+const PostForm = ({ post }: PostFormProps) => {
   const { register, handleSubmit, watch, setValue, control, getValues } =
     useForm({
       defaultValues: {
@@ -18,6 +23,11 @@ const PostForm = ({ post }) => {
     });
   const navigate = useNavigate();
   const userData = useSelector<RootState>((state) => state.auth.userData);
+
+  const submitPost = () => {
+    if (post) {
+    }
+  };
 
   return <div>PostForm</div>;
 };
