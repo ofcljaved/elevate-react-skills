@@ -1,5 +1,5 @@
-import config from "../config/config";
-import { Client, Storage, Models, ID } from "appwrite";
+import config from '../config/config';
+import { Client, Storage, Models, ID } from 'appwrite';
 
 class StorageService {
   private client: Client;
