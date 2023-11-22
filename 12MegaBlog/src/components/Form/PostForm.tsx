@@ -1,12 +1,12 @@
-import { useForm, SubmitHandler } from 'react-hook-form';
-import { Button, Input, Select, RTE } from '..';
-import storageService from '../../appwrite/storage';
-import dbService from '../../appwrite/dbService';
-import { useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../store/store';
 import { Models } from 'appwrite';
 import { FormEvent, useCallback, useEffect } from 'react';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { Button, Input, RTE, Select } from '..';
+import dbService from '../../appwrite/dbService';
+import storageService from '../../appwrite/storage';
+import { RootState } from '../../store/store';
 
 interface PostFormProps {
   post: CreatePost & Models.Document;
@@ -14,7 +14,7 @@ interface PostFormProps {
 
 const PostForm = ({ post }: PostFormProps) => {
   const { register, handleSubmit, watch, setValue, control, getValues } =
-    useForm<CreatePost>({
+    useForm<PostForm>({
       defaultValues: {
         title: post?.title || '',
         slug: post?.slug || '',
@@ -24,17 +24,18 @@ const PostForm = ({ post }: PostFormProps) => {
     });
 
   const navigate = useNavigate();
-  const userData = useSelector<RootState>(
+  const userData: AuthState['userData'] = useSelector<RootState>(
     (state) => state.auth.userData
-  ) as AuthState['userData'];
+  );
 
-  const submitPost: SubmitHandler<CreatePost> = async (data) => {
-    const file = data.featuredImg[0]
-      ? await storageService.uploadFile(data.featuredImg[0])
+  const submitPost: SubmitHandler<PostForm> = async (data) => {
+    const file = data.image[0]
+      ? await storageService.uploadFile(data.image[0])
       : null;
 
     if (post) {
-      if (file) await storageService.deleteFile(post.featuredImg);
+      if (file && post.featuredImg)
+        await storageService.deleteFile(post.featuredImg);
 
       const dbPost = await dbService.updatePost(post.$id, {
         ...data,

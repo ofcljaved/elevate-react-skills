@@ -15,13 +15,18 @@ interface CreateUserAccount extends LoginUserAccount {
 interface UpdatePost {
   title: string;
   content: string;
-  featuredImg: string;
+  featuredImg: string | undefined;
   status: string;
 }
 
 interface CreatePost extends UpdatePost {
   slug: string;
   userId: string;
+}
+
+interface PostForm extends Omit<UpdatePost, 'featuredImg'> {
+  image: FileList;
+  slug: string;
 }
 
 type AuthState = {
