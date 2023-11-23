@@ -1,7 +1,7 @@
 import { Button } from './Button';
 import { PostCard } from './Card';
 import { Container, Protected } from './Container';
-import Footer from './Footer/Footer';
+import { Footer } from './Footer';
 import { Login, Signup, PostForm } from './Form';
 import { Header, LogoutBtn } from './Header';
 import { Input, Select, RTE } from './Input';

@@ -1,5 +1,5 @@
-import config from "../config/config";
-import { Client, Databases, Models, Query } from "appwrite";
+import config from '../config/config';
+import { Client, Databases, Models, Query } from 'appwrite';
 
 class DbService {
   private client: Client;
@@ -62,7 +62,7 @@ class DbService {
     }
   }
 
-  async getPost(slug: string): Promise<Models.Document> {
+  async getPost(slug: string): Promise<CreatePost & Models.Document> {
     try {
       return await this.databases.getDocument(
         config.appwriteDatabaseId,
@@ -75,8 +75,8 @@ class DbService {
   }
 
   async getAllPost(
-    quries: string[] = [Query.equal("status", "active")]
-  ): Promise<Models.DocumentList<Models.Document>> {
+    quries: string[] = [Query.equal('status', 'active')]
+  ): Promise<Models.DocumentList<CardProps & Models.Document>> {
     try {
       return await this.databases.listDocuments(
         config.appwriteDatabaseId,

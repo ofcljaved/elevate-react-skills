@@ -1,7 +1,12 @@
-import { Link } from "react-router-dom";
-import storageService from "../../appwrite/storage";
+import { Link } from 'react-router-dom';
+import storageService from '../../appwrite/storage';
+import { Models } from 'appwrite';
 
-const PostCard: React.FC<CardProps> = ({ $id, title, featuredImage }) => {
+const PostCard: React.FC<CardProps & Models.Document> = ({
+  $id,
+  title,
+  featuredImage,
+}) => {
   return (
     <Link to={`/post/${$id}`}>
       <div className="w-full bg-gray-100 rounded-xl p-4">

@@ -9,7 +9,7 @@ import storageService from '../../appwrite/storage';
 import { RootState } from '../../store/store';
 
 interface PostFormProps {
-  post: CreatePost & Models.Document;
+  post?: CreatePost & Models.Document;
 }
 
 const PostForm = ({ post }: PostFormProps) => {

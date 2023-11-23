@@ -64,7 +64,6 @@ interface SelectProps extends HTMLProps<HTMLSelectElement> {
 }
 
 interface CardProps {
-  $id: string;
   title: string;
   featuredImage: string;
 }
