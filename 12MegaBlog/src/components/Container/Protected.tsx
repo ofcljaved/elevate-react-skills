@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { RootState } from "../../store/store";
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { RootState } from '../../store/store';
 
 const Protected = ({
   children,
@@ -13,9 +13,9 @@ const Protected = ({
 
   useEffect(() => {
     if (authentication && authStatus !== authentication) {
-      navigate("/login");
+      navigate('/login');
     } else if (!authentication && authStatus !== authentication) {
-      navigate("/");
+      navigate('/');
     }
     setLoader(false);
   }, [authStatus, navigate, authentication]);
