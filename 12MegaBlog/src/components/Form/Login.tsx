@@ -56,6 +56,7 @@ const Login = () => {
               label="Email :"
               type="email"
               placeholder="Enter your email"
+              autoComplete="email"
               {...register('email', {
                 required: true,
                 validate: {
@@ -69,6 +70,7 @@ const Login = () => {
               label="Password :"
               type="password"
               placeholder="Enter your password"
+              autoComplete="current-password"
               {...register('password', { required: true })}
             />
             <Button type="submit" className="w-full">

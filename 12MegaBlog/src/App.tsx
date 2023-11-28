@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import authService from "./appwrite/auth";
-import { login, logout } from "./store/authSlice";
-import { Footer, Header } from "./components";
+import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import authService from './appwrite/auth';
+import { login, logout } from './store/authSlice';
+import { Footer, Header } from './components';
+import { Outlet } from 'react-router-dom';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -25,7 +26,7 @@ function App() {
     <div className=" min-h-screen bg-gray-400 grid grid-rows-[max-content_auto_max-content]">
       <Header />
       <main>
-        <h1 className="text-center text-4xl bg-gray-400 text-gray-50">Hello</h1>
+        <Outlet />
       </main>
       <Footer />
     </div>

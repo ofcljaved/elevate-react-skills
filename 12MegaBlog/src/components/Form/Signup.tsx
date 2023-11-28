@@ -1,11 +1,11 @@
-import { Link, useNavigate } from "react-router-dom";
-import { Button, Input, Logo } from "..";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { AppDispatch } from "../../store/store";
-import { SubmitHandler, useForm } from "react-hook-form";
-import authService from "../../appwrite/auth";
-import { login as authLogin } from "../../store/authSlice";
+import { Link, useNavigate } from 'react-router-dom';
+import { Button, Input, Logo } from '..';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '../../store/store';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import authService from '../../appwrite/auth';
+import { login as authLogin } from '../../store/authSlice';
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -21,7 +21,7 @@ const Signup = () => {
       if (session) {
         const userData = await authService.isLoggedIn();
         if (userData) dispatch(authLogin(userData));
-        navigate("/");
+        navigate('/');
       }
     } catch (error: any) {
       setError(error.message);
@@ -43,7 +43,8 @@ const Signup = () => {
           Already have an account?&nbsp;
           <Link
             to="/login"
-            className="font-medium text-primary transition-all duration-200 hover:underline">
+            className="font-medium text-primary transition-all duration-200 hover:underline"
+          >
             Sign In
           </Link>
         </p>
@@ -53,29 +54,32 @@ const Signup = () => {
           <div className="space-y-5">
             <Input
               label="Full Name :"
+              autoComplete="name"
               placeholder="Enter your full name"
-              {...register("name", {
+              {...register('name', {
                 required: true,
               })}
             />
             <Input
               label="Email :"
               type="email"
+              autoComplete="email"
               placeholder="Enter your email"
-              {...register("email", {
+              {...register('email', {
                 required: true,
                 validate: {
                   matchPattern: (value) =>
                     /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
-                    "Email address must be a valid address",
+                    'Email address must be a valid address',
                 },
               })}
             />
             <Input
               label="Password :"
               type="password"
+              autoComplete="new-password"
               placeholder="Enter your password"
-              {...register("password", { required: true })}
+              {...register('password', { required: true })}
             />
             <Button type="submit" className="w-full">
               Create Account
