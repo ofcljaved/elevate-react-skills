@@ -58,7 +58,7 @@ const PostForm = ({ post }: PostFormProps) => {
     return value
       .trim()
       .toLowerCase()
-      .replace(/^[a-zA-Z\d]+/g, '-');
+      .replace(/[^a-zA-Z\d]+/g, '-');
   }, []);
 
   useEffect(() => {
